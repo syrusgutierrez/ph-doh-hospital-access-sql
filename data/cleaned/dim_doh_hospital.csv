@@ -1,0 +1,93 @@
+﻿facility,region,city_or_municipality,province
+Amang Rodriguez Memorial Medical Center,NCR,Marikina City,Metro Manila
+East Avenue Medical Center,NCR,Quezon City,Metro Manila
+Jose Fabella Memorial Hospital,NCR,Manila,Metro Manila
+Rodriguez Memorial Hospital and Sanitarium,NCR,Caloocan City,Metro Manila
+Reyes Memorial Medical Center,NCR,Manila,Metro Manila
+Las Piñas General Hospital and Satellite Trauma Center,NCR,Las Piñas City,Metro Manila
+National Center for Geriatric Health,NCR,Manila,Metro Manila
+National Center for Mental Health,NCR,Mandaluyong City,Metro Manila
+National Children's Hospital,NCR,Quezon City,Metro Manila
+Philippine Cancer Center,NCR,Quezon City ,Metro Manila
+Philippine Orthopedic Center,NCR,Quezon City,Metro Manila
+Quirino Memorial Medical Center,NCR,Quezon City,Metro Manila
+Research Institute for Tropical Medicine,NCR,Muntinlupa City,Metro Manila
+Rizal Medical Center,NCR,Pasig City,Metro Manila
+San Lazaro Hospital,NCR,Manila,Metro Manila
+San Lorenzo Ruiz General Hospital,NCR,Malabon City,Metro Manila
+Gonzales General Hospital,NCR,Mandaluyong City,Metro Manila
+Tondo Medical Center,NCR,Manila,Metro Manila
+Valenzuela Medical Center,NCR,Valenzuela City,Metro Manila
+Baguio General Hospital and Medical Center,CAR,Baguio City,Benguet
+Conner District Hospital,CAR,Conner,Apayao
+Far North Luzon General Hospital and Training Center,CAR,Luna,Apayao
+Luis Hora Memorial Regional Hospital,CAR,Bauko,Mountain Province
+Estrella Regional Medical and Trauma Center,REGION I,Rosales,Pangasinan
+Ilocos Sur Medical Center,REGION I,Candon City,Ilocos Sur
+Ilocos Training and Regional Medical Center,REGION I,San Fernando City,La Union
+Mariano Marcos Memorial Hospital and Medical Center,REGION I,Batac City,Ilocos Norte
+Region 1 Medical Center,REGION I,Dagupan City,Pangasinan
+Batanes General Hospital,REGION II,Basco,Batanes
+Cagayan Valley Medical Center,REGION II,Tuguegarao City,Cagayan
+Northwestern Cagayan General Hospital,REGION II,Abulug,Cagayan
+Region II  Trauma and Medical Center,REGION II,Bayombong,Nueva Vizcaya
+Southern Isabela Medical Center,REGION II,Santiago City,Isabela
+Aurora Medical Center,REGION III,Baler,Aurora
+Bataan General Hospital and Medical Center,REGION III,Balanga City,Bataan
+Clark Multi-Specialty Medical Center,REGION III,Mabalacat City,Pampanga
+Garcia Memorial Research and Medical Center,REGION III,Cabanatuan City,Nueva Ecija
+Freeport Area of Bataan General Hospital,REGION III,Mariveles,Bataan
+Lingad Memorial General Hospital,REGION III,San Fernando City,Pampanga
+Joni Villanueva General Hospital,REGION III,Bocaue,Bulacan
+Mariveles Mental Wellness and General Hospital,REGION III,Mariveles,Bataan
+Angara General Hospital,REGION III,San Jose City,Nueva Ecija
+Talavera General Hospital,REGION III,Talavera,Nueva Ecija
+Batangas Medical Center,REGION IV-A,Batangas City,Batangas
+Laguna Regional Hospital,REGION IV-A,Bay,Laguna
+Lucena City Hospital,REGION IV-A,Lucena City,Quezon
+Eleazar General Hospital,REGION IV-A,Tagkawayan,Quezon
+Northern Tagalog Regional Hospital,REGION IV-A,Rodriguez,Rizal
+Southern Luzon Multi-Specialty Medical Center,REGION IV-A,Tayabas City,Quezon
+Southern Tagalog Regional Hospital,REGION IV-A,Bacoor City,Cavite
+Culion Sanitarium and General Hospital,REGION IV-B,Culion,Palawan 
+Ospital ng Palawan,REGION IV-B,Puerto Princesa City,Palawan 
+Bicol Medical Center,REGION V,Naga City,Camarines Sur
+Bicol Region General Hospital and Geriatric Medical Center,REGION V,Cabusao,Camarines Sur
+Bicol Regional Hospital and Medical Center,REGION V,Legazpi City,Albay
+Corazon Locsin Montelibano Memorial Regional Hospital,REGION VI,Bacolod City,Negros Occidental
+Monfort Medical Center,REGION VI,Barotac Nuevo,Iloilo
+Western Visayas Medical Center,REGION VI,Iloilo City,Iloilo
+Western Visayas Sanitarium and General Hospital,REGION VI,Santa Barbara,Iloilo
+Cebu South Medical Center,REGION VII,Talisay City,Cebu
+Eversley Childs Sanitarium and General Hospital,REGION VII,Mandaue City,Cebu
+Don Emilio Del Valle Memorial Hospital,REGION VII,Ubay,Bohol
+Governor Celestino Gallares Memorial Medical Center,REGION VII,Tagbilaran City,Bohol
+Governor Celestino Gallares Multi-Specialty Medical Center,REGION VII,Cortes,Bohol
+Anthony Mother and Child Hospital,REGION VII,Cebu City,Cebu
+Vicente Sotto Memorial Medical Center,REGION VII,Cebu City,Cebu
+Eastern Visayas Medical Center,REGION VIII,Tacloban City,Leyte
+Romualdez General Hospital and Schistosomiasis Center,REGION VIII,Palo,Leyte
+Samar Island Medical Center,REGION VIII,Calbayog City,Samar
+Basilan Medical Center,REGION IX,Isabela City,Basilan
+Jose Rizal Memorial Hospital,REGION IX,Dapitan City,Zamboanga del Norte
+Labuan General Hospital,REGION IX,Zamboanga City,
+Liloy General Hospital,REGION IX,Liloy,Zamboanga del Norte
+Margosatubig Regional Hospital,REGION IX,Margosatubig,Zamboanga del Sur
+Sulu Sanitarium and General Hospital,REGION IX,Jolo,Sulu
+Zamboanga City Medical Center,REGION IX,Zamboanga City,
+Zamboanga Regional Medical Center,REGION IX,Zamboanga City,
+Camiguin General Hospital,REGION X,Mambajao,Camiguin
+First Misamis Oriental General Hospital,REGION X,Medina,Misamis Oriental
+Mayor Hilarion A. Ramiro Sr. Medical Center,REGION X,Ozamis City,Misamis Occidental
+Northeastern Misamis General Hospital,REGION X,Villanueva,Misamis Oriental
+Northern Mindanao Medical Center,REGION X,Cagayan de Oro City,Misamis Oriental
+Davao Occidental General Hospital,REGION XI,Malita,Davao Occidental
+Davao Regional Medical Center,REGION XI,Tagum City,Davao del Norte
+Southern Philippines Medical Center,REGION XI,Davao City,
+SOCCSKSARGEN General Hospital,REGION XII,Surallah,South Cotabato
+Adela Serra Ty Memorial Medical Center,REGION XIII,Tandag City,Surigao del Sur
+Caraga Regional Hospital,REGION XIII,Surigao City,Surigao del Norte
+Siargao Island Medical Center,REGION XIII,Dapa,Surigao del Norte
+Amai Pakpak Medical Center,BARMM,Marawi City,Lanao del Sur 
+Cotabato Regional and Medical Center,BARMM,Cotabato City ,Maguindanao del Norte 
+Cotabato Sanitarium and General Hospital,BARMM,Sultan Kudarat,Maguindanao del Norte 
