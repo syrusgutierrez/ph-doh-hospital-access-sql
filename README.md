@@ -29,9 +29,7 @@ ph-healthcare-sql-analysis/
 │
 ├── sql/
 │
-├── documentation/
-├── screenshots/
-│   └── query_results_samples.png
+├── docs/
 │
 ├── README.md
 └── LICENSE
