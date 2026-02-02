@@ -57,17 +57,14 @@ All analysis was done using PostgreSQL.
 
 ```text
 ph-healthcare-sql-analysis/
-│
-├── data/
-│   ├── raw/
-│   │   └── doh_hospital_population_raw.xlsx
-│   │
-│   ├── cleaned/
-│   │   ├── dim_doh_hospital_cleaned.csv
-│   │   └── dim_population_region_cleaned.csv
-│
-├── sql/
-│
-├── docs/
-│
-├── README.md
+── data/
+    └── raw/
+        └── doh_hospital_population_raw.xlsx
+    └── cleaned/
+        └── dim_doh_hospital_cleaned.csv
+        └── dim_population_region_cleaned.csv
+── sql/
+── docs/
+── README.md
+```
+
