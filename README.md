@@ -71,7 +71,3 @@ ph-healthcare-sql-analysis/
 ├── docs/
 │
 ├── README.md
-└── LICENSE
-
-
-
