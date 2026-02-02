@@ -15,7 +15,7 @@ The objectives of this project are to:
 
 
 ## Data Sources
-DOH Hospital Data ([Source](https://sites.google.com/view/doh-hfdb/facilities))
+**DOH Hospital Data** ([Source](https://sites.google.com/view/doh-hfdb/facilities))
 
 **Table:** `dim_doh_hospital`
 
@@ -26,7 +26,7 @@ DOH Hospital Data ([Source](https://sites.google.com/view/doh-hfdb/facilities))
 | **province** | Province |
 | **city_or_municipality** | City / Municipality |
 
-Population Data ([Source](https://openstat.psa.gov.ph/PXWeb/pxweb/en/DB/DB__1A__PO/0011A6DPHH0.px/?rxid=7a97f790-4ee2-4d9b-bba4-4486d26a422d))
+**Population Data** ([Source](https://openstat.psa.gov.ph/PXWeb/pxweb/en/DB/DB__1A__PO/0011A6DPHH0.px/?rxid=7a97f790-4ee2-4d9b-bba4-4486d26a422d))
 
 **Table:** `dim_population_region`
 
@@ -38,6 +38,7 @@ Population Data ([Source](https://openstat.psa.gov.ph/PXWeb/pxweb/en/DB/DB__1A__
 ## Tools Used
 - PostgreSQL
 - SQL (CTEs, joins, aggregations)
+- Excel, Power Query (For Data Cleaning)
 
 ## Methodology
 
