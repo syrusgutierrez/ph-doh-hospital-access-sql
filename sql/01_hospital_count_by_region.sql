@@ -1,5 +1,5 @@
 SELECT 
-    ddh.region,
-    COUNT(ddh.facility) AS facility_count
-FROM dim_doh_hospital ddh
-GROUP BY 1;
+    region,
+    COUNT(facility) AS hospital_count
+FROM dim_doh_hospital
+GROUP BY region;
