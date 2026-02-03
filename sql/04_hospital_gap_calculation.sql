@@ -2,7 +2,7 @@ WITH hospital_rate AS (
     SELECT 
         ddh.region,
         dpr.total_population,
-        (COUNT(ddh.facility) * 1000000 / dpr.total_population) AS hospitals_per_million
+        ROUND(COUNT(ddh.facility) * 1000000.0 / dpr.total_population, 2) AS hospitals_per_million
     FROM dim_doh_hospital ddh 
     JOIN dim_population_region dpr 
         ON ddh.region = dpr.region
@@ -11,7 +11,7 @@ WITH hospital_rate AS (
 
 national_avg AS (
     SELECT
-        AVG(hr.hospitals_per_million) AS avg_hospitals_per_million
+        (ROUND(AVG(hospitals_per_million), 2)) AS avg_hospitals_per_million
     FROM hospital_rate hr
 ),
 
@@ -29,9 +29,8 @@ lowest_region AS (
 
 SELECT 
     lr.region,
-    ((CEIL(lr.avg_hospitals_per_million) * hr.total_population / 1000000) 
-     - (CEIL(lr.hospitals_per_million) * hr.total_population / 1000000)) 
-        AS needed_hospitals
+    ((lr.avg_hospitals_per_million * hr.total_population / 1000000) 
+    - (lr.hospitals_per_million * hr.total_population / 1000000)) AS needed_hospitals
 FROM lowest_region lr 
 JOIN hospital_rate hr 
     ON lr.region = hr.region;
