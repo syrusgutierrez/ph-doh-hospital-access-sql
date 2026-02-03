@@ -10,7 +10,7 @@ I used PostgreSQL and SQL to explore:
 - How many DOH hospitals exist per region
 - Hospital availability relative to population
 - Which regions fall below the national average
-- How many hospitals are needed for underserved regions to catch up
+- How many hospitals are needed for the most underserved region to reach the national average
 
 The main goal of this project is to show my SQL skills and analytical thinking, not dashboards or machine learning.
 
@@ -50,7 +50,7 @@ Healthcare access varies across the Philippines, and looking at hospital counts 
 | Excel / Power Query | Cleaning raw hospital and population data |
 
 ## SQL Analysis
-**- How many DOH hospitals are there per region?**
+### • How many DOH hospitals are there per region?
 ```
 SELECT 
     region,
@@ -66,13 +66,13 @@ GROUP BY region;
 
 This provides a baseline view of hospital distribution across regions. However, this does not yet account for population differences.
 
-**- How many hospitals are available per million people per region?**
+### • How many hospitals are available per million people per region?
 ```
 SELECT 
     ddh.region,
     dpr.total_population,
-    (COUNT(ddh.facility) * 1000000 / dpr.total_population) AS hospitals_per_million
-FROM dim_doh_hospital ddh
+    ROUND(COUNT(ddh.facility) * 1000000.0 / dpr.total_population, 2) AS hospitals_per_million
+FROM dim_doh_hospital ddh 
 JOIN dim_population_region dpr 
     ON ddh.region = dpr.region
 GROUP BY ddh.region, dpr.total_population;
@@ -80,73 +80,18 @@ GROUP BY ddh.region, dpr.total_population;
 **Steps:**
 - Used JOIN to merge `dim_doh_hospital` and `dim_population_region` to show the rate `hospitals_per_million`
 - Grouped the aggregated result by `ddh.region` and `dpr.total_population`
+- Used ROUND on the `hospitals_per_million` to round value to 2 decimals
   
 **Insight**
 
 Normalizing hospital counts by population allows fair comparison between regions of different sizes.
 
-**- What is the national average hospital access?**
+### • Which regions fall below the national average hospital access?
 ```
 WITH hospital_rate AS (
     SELECT 
         ddh.region,
-        (COUNT(ddh.facility) * 1000000 / dpr.total_population) AS hospitals_per_million
-    FROM dim_doh_hospital ddh
-    JOIN dim_population_region dpr 
-        ON ddh.region = dpr.region
-    GROUP BY ddh.region, dpr.total_population
-)
-SELECT 
-    AVG(hospitals_per_million) AS avg_hospitals_per_million
-FROM hospital_rate;
-```
-**Steps:**
-- I turned the previous code to Common Table Expression (CTE) as `hospital_rate`. 
-- With this I performed the AVG function on `hospitals_per_million` to find the average.
-
-**Insight** 
-
-The national average is used as a benchmark to identify underserved regions.
-
-**- Which regions fall below the national average hospital access?**
-```
-WITH hospital_rate AS (
-    SELECT 
-        ddh.region,
-        (COUNT(ddh.facility) * 1000000 / dpr.total_population) AS hospitals_per_million
-    FROM dim_doh_hospital ddh
-    JOIN dim_population_region dpr 
-        ON ddh.region = dpr.region
-    GROUP BY ddh.region, dpr.total_population
-),
-national_avg AS (
-    SELECT 
-        AVG(hospitals_per_million) AS avg_hospitals_per_million
-    FROM hospital_rate
-)
-SELECT 
-    hr.region,
-    hr.hospitals_per_million
-FROM hospital_rate hr
-JOIN national_avg na
-    ON hr.hospitals_per_million < na.avg_hospitals_per_million;
-```
-**Steps:**
-- Continued with the CTE and making the second CTE `avg_hospitals_per_million` as `national_avg`.
-- In the outer query, I used JOIN on `hospital_rate` and `national_avg` where the `hospitals_per_million` is lower than `avg_hospitals_per_million` to find underserved regions.
-
-**Insight**
-
-These regions have fewer hospitals per person compared to the national benchmark.
-
-**- How many hospitals are needed to reach the national average?**
-```
-WITH hospital_rate AS (
-    SELECT 
-        ddh.region,
-        dpr.total_population,
-        COUNT(ddh.facility) AS hospital_count,
-        (COUNT(ddh.facility) * 1000000 / dpr.total_population) AS hospitals_per_million
+        ROUND(COUNT(ddh.facility) * 1000000.0 / dpr.total_population, 2) AS hospitals_per_million
     FROM dim_doh_hospital ddh 
     JOIN dim_population_region dpr 
         ON ddh.region = dpr.region
@@ -154,38 +99,70 @@ WITH hospital_rate AS (
 ),
 national_avg AS (
     SELECT
-        AVG(hospitals_per_million) AS avg_hospitals_per_million,
-        AVG(hospital_count) AS avg_hospital_count
+        (ROUND(AVG(hospitals_per_million), 2)) AS avg_hospitals_per_million
     FROM hospital_rate
+)
+SELECT
+    hr.region,
+    hr.hospitals_per_million
+FROM hospital_rate hr
+JOIN national_avg na 
+    ON hr.hospitals_per_million < na.avg_hospitals_per_million;
+```
+**Steps:**
+- I created a second CTE named `national_avg` to get the average of the `hospitals_per_million`
+- In the outer query, I used JOIN on `hospital_rate` and `national_avg` where `hospitals_per_million` is lower than the `avg_hospitals_per_million` to get underserved regions
+
+**Insight** 
+
+This identifies regions that are underserved relative to the national average hospital availability.
+
+### • How many hospitals are needed for the most underserved region to reach the national average?
+```
+WITH hospital_rate AS (
+    SELECT 
+        ddh.region,
+        dpr.total_population,
+        ROUND(COUNT(ddh.facility) * 1000000.0 / dpr.total_population, 2) AS hospitals_per_million
+    FROM dim_doh_hospital ddh 
+    JOIN dim_population_region dpr 
+        ON ddh.region = dpr.region
+    GROUP BY 1, dpr.total_population
 ),
+
+national_avg AS (
+    SELECT
+        (ROUND(AVG(hospitals_per_million), 2)) AS avg_hospitals_per_million
+    FROM hospital_rate hr
+),
+
 lowest_region AS (
     SELECT
         hr.region,
         hr.hospitals_per_million,
-        hr.hospital_count,
-        na.avg_hospital_count
-    FROM hospital_rate hr
-    JOIN national_avg na
+        na.avg_hospitals_per_million
+    FROM hospital_rate hr 
+    JOIN national_avg na 
         ON hr.hospitals_per_million < na.avg_hospitals_per_million
-    ORDER BY hr.hospitals_per_million ASC
+    ORDER BY 2 ASC 
+    LIMIT 1
 )
+
 SELECT 
     lr.region,
-    hr.hospital_count,
-    lr.avg_hospital_count
-FROM hospital_rate hr
-JOIN lowest_region lr 
-    ON hr.region = lr.region
-WHERE hr.hospital_count < lr.avg_hospital_count;
+    ((lr.avg_hospitals_per_million * hr.total_population / 1000000) 
+    - (lr.hospitals_per_million * hr.total_population / 1000000)) AS needed_hospitals
+FROM lowest_region lr 
+JOIN hospital_rate hr 
+    ON lr.region = hr.region;
+
 ```
 **Steps:**
-- I introduced again the 3rd CTE where it is named as `lowest_region` and this CTE selects the region where the `hospitals_per_million` is lower than the `avg_hospitals_per_million`
-- On the outer query, I used JOIN to combine the `hospital_rate` and `lowest_region` to 
+- I created a third CTE named `lowest_region` and used JOIN on `hospital_rate` to combine it with the `national_avg` where the `hospitals_per_million` is lower than the `avg_hospitals_per_million`. I also used LIMIT 1 to limit the output into 1 region that is most underserved.
+- On the outer query, I used JOIN to combine the `hospital_rate` and `lowest_region` where `region` is their identifier.
 
-
-
-
-
+**Insight** 
+This identifies how many addtional hospitals are needed to reach the national average and since this is theoretical, this would be rounded up to the nearest whole hospital.
 
 ## Methodology
 - The analysis follows these steps:
