@@ -193,7 +193,6 @@ ph-healthcare-sql-analysis/
     └── 02_hospitals_per_million.sql
     └── 03_below_national_average.sql
     └── 04_hospital_gap_calculation.sql
-    └── 05_consistently_underserved_regions.sql
 ── README.md
 ```
 
