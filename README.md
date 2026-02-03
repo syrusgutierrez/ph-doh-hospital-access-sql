@@ -190,7 +190,6 @@ ph-healthcare-sql-analysis/
     └── 03_below_national_average.sql
     └── 04_hospital_gap_calculation.sql
     └── 05_consistently_underserved_regions.sql
-── docs/
 ── README.md
 ```
 
