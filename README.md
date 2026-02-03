@@ -1,5 +1,4 @@
-# PH DOH Hospital Access Analysis (SQL) *ONGOING
-
+# PH DOH Hospital Access Analysis (SQL) 
 ## Project Overview
 This project analyzes the distribution of Department of Health (DOH) hospitals across regions in the Philippines using SQL. Instead of relying on hospital counts alone, the analysis adjusts for population size to identify regions that may be underserved.
 
