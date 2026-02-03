@@ -162,6 +162,11 @@ JOIN hospital_rate hr
 
 **Insight** 
 This identifies how many addtional hospitals are needed to reach the national average and since this is theoretical, this would be rounded up to the nearest whole hospital.
+| region | hospitals_per_million | national_avg | needed_hospitals |
+| :--- | :--- | :--- | :--- |
+|REGION XII|0.23|0.93|3.05 ~ 4 needed|
+
+
 
 ## Methodology
 - The analysis follows these steps:
