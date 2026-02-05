@@ -200,4 +200,5 @@ ph-healthcare-sql-analysis/
 - Only DOH hospitals are included.
 - Population data is aggregated at the regional level.
 - Hospital capacity and services are not considered.
+- Population data is based on the 2020 PSA Census (latest available regional dataset), while DOH hospital facility data reflects listings updated as of 2023. Minor time-period differences may affect precision but do not significantly impact regional access comparisons.
 
