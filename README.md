@@ -149,12 +149,11 @@ lowest_region AS (
 
 SELECT 
     lr.region,
-    ((lr.avg_hospitals_per_million * hr.total_population / 1000000) 
-    - (lr.hospitals_per_million * hr.total_population / 1000000)) AS needed_hospitals
+    ROUND((lr.avg_hospitals_per_million * hr.total_population / 1000000) 
+    - (lr.hospitals_per_million * hr.total_population / 1000000), 2) AS needed_hospitals
 FROM lowest_region lr 
 JOIN hospital_rate hr 
     ON lr.region = hr.region;
-
 ```
 **Steps:**
 - I created a third CTE named `lowest_region` and used JOIN on `hospital_rate` to combine it with the `national_avg` where the `hospitals_per_million` is lower than the `avg_hospitals_per_million`. I also used LIMIT 1 to limit the output into 1 region that is most underserved.
