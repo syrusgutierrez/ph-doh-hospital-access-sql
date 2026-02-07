@@ -160,6 +160,7 @@ JOIN hospital_rate hr
 - On the outer query, I used JOIN to combine the `hospital_rate` and `lowest_region` where `region` is their identifier.
 
 **Insight** 
+
 This identifies how many addtional hospitals are needed to reach the national average and since this is theoretical, this would be rounded up to the nearest whole hospital.
 | region | hospitals_per_million | national_avg | needed_hospitals |
 | :--- | :--- | :--- | :--- |
